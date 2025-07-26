@@ -2,6 +2,7 @@ import torch
 import warnings
 from torch import nn
 
+#Takes the Waveform and outputs spectrogram.
 class PowerToDB(nn.Module):
     def __init__(self, ref=1.0, amin=1e-10, top_db=80.0):
         super(PowerToDB, self).__init__()

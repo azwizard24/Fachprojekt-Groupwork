@@ -7,6 +7,7 @@ from birdset_model import ConvNextBirdSet
 import os
 from focal_loss_file import FocalLoss
 
+#Initialize birdset class
 class BirdsetModule(torch.nn.Module):
     def __init__(self, num_classes=206):
         super().__init__()
@@ -17,6 +18,13 @@ class BirdsetModule(torch.nn.Module):
         return self.model(preprocessed)
 
 def train_one_epoch(model, dataloader, optimizer, device, criterion, roc_auc_metric, epoch):
+    """
+    Function to train the birdset module for 1 Epoch.
+    Args: Model, Dataloader, Optimizer, Device, Loss function, Metric, Epoch count.
+    
+    """
+    
+    
     model.train()
     total_loss = 0.0
     roc_auc_metric.reset()
@@ -48,6 +56,10 @@ def train_one_epoch(model, dataloader, optimizer, device, criterion, roc_auc_met
     return avg_loss, macro_auc
 
 def evaluate(model, dataloader, device, criterion, roc_auc_metric, epoch):
+    """
+    Function to evaluate the model after training.
+    
+    """
     model.eval()
     total_loss = 0.0
     roc_auc_metric.reset()

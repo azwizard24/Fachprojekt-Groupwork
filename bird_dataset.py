@@ -51,8 +51,6 @@ class CustomAudioDataset(Dataset):
 
         return sample
 
-# --------- Usage in standard PyTorch (no Lightning) ---------
-
 def load_dataloaders(root_dir, batch_size=32, sample_rate=32000, train_split=0.8): # Run with 0.8.
     dataset = CustomAudioDataset(root_dir=root_dir, sample_rate=sample_rate)
     print(dataset.idx_to_class)
@@ -65,6 +63,7 @@ def load_dataloaders(root_dir, batch_size=32, sample_rate=32000, train_split=0.8
 
     return train_loader, test_loader
 
+#Segment_audio should be the dataset with 5 sec clipped audio file.
 root_dir = 'segment_audio'
 train_loader, test_loader = load_dataloaders(root_dir)
 for batch in train_loader:
