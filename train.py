@@ -2,8 +2,8 @@ import torch
 import torch.nn.functional as F
 from torchmetrics.classification import MulticlassAUROC
 from torch.utils.data import DataLoader
-from birdset_model import ConvNextBirdSet
-#from bird_dataset import load_dataloaders
+from model import ConvNextBirdSet
+from dataset import load_dataloaders
 import os
 from focal_loss_file import FocalLoss
 
